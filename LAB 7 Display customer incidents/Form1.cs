@@ -33,5 +33,18 @@ namespace LAB_7_Display_customer_incidents
             this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
 
         }
+
+        private void searchCustIdToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.customersTableAdapter.searchCustId(this.techSupportDataSet.Customers, ((int)(System.Convert.ChangeType(customeridToolStripTextBox.Text, typeof(int)))));
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
